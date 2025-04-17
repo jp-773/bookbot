@@ -14,4 +14,12 @@ def get_char_count(text):
         else:
             char_dict[char] += 1
     return char_dict
-        
+
+def clean_sort(char_dict):
+    list_dict = []
+    for k, v in char_dict.items():
+        if k.isalpha():
+            list_dict.append({'name':k, 'count':v})
+    # clean_dict = list_dict.sort()
+    clean_dict = sorted(list_dict, key=lambda d: d['count'], reverse=True)
+    return clean_dict
